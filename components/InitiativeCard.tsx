@@ -56,11 +56,11 @@ const InitiativeCard = ({ card, cardList, setCardList, sortCardList }: any) => {
         ${done ? 'done' : ''}
       `}>
       <button
-        className="basis-10 bg-neutral-700 border-neutral-200 rounded-full"
+        className="basis-10 rounded-full"
         onClick={toggleDone}
       >{ String.fromCharCode(10003) }</button>
       <button
-        className="basis-10 bg-neutral-700 border-neutral-200 rounded-full"
+        className="basis-10 rounded-full"
         onClick={toggleDisable}
       >{ String.fromCharCode(8646) }</button>
       <input
@@ -79,9 +79,9 @@ const InitiativeCard = ({ card, cardList, setCardList, sortCardList }: any) => {
         onChange={ handleSecondaryInitiativeChange }
         value={ secondaryInitiative }
       />
-      <div className="basis-80">{card.name}</div>
+      <div className="basis-80 card-name">{card.name}</div>
       <button
-        className="basis-10 bg-neutral-700 border-neutral-200 rounded-full absolute right-4"
+        className="basis-10 rounded-full absolute right-4"
         onClick={handleClose}
         value={card.id}
       >{ String.fromCharCode(10005) }</button>

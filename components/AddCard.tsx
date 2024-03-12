@@ -5,8 +5,8 @@ import { useState } from 'react'
 const AddCard = ({ cardList, setCardList, sortCardList }: any) => {
   
   const [ cardName, setCardName ] = useState('')
-  const [ color, setColor ] = useState('gray')
-  const colors = [ 'gray', 'red', 'yellow', 'blue', 'black', 'purple', 'pink' ]
+  const [ color, setColor ] = useState('red')
+  const colors = [ 'red', 'green', 'yellow', 'blue', 'turquoise', 'black', 'purple', 'pink', 'gray' ]
 
   const addCard = (event: any) => {
     event.preventDefault()
