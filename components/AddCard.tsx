@@ -14,6 +14,7 @@ const AddCard = ({ cardList, setCardList, sortCardList }: any) => {
         id: Date.now(),
         name: cardName,
         initiative: 0,
+        secondaryInitiative: 0,
         disabled: false,
       }
       setCardList(sortCardList(cardList.concat(newCard)))

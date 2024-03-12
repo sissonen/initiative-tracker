@@ -13,7 +13,13 @@ const InitiativeTracker = () => {
   const sortCardList = (list: Array<initiativeCard>) => {
     let sortedList = []
     if (Array.isArray(list)) {
-      sortedList = list.sort((a, b) => a.initiative - b.initiative)
+      sortedList = list.sort(
+        (a, b) => {
+          if (a.initiative == b.initiative) {
+            return a.secondaryInitiative - b.secondaryInitiative
+          }
+          return a.initiative - b.initiative
+        })
     } else {
       sortedList = list
     }
