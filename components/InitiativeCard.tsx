@@ -22,6 +22,7 @@ const InitiativeCard = ({ card, cardList, setCardList, sortCardList }: any) => {
   }
   const toggleDisable = () => {
     setDisabled(!disabled)
+    setDone(false)
     let newInitiative = disabled ? 0 : 999
     changeInitiative(newInitiative, newInitiative)
   }
@@ -48,7 +49,7 @@ const InitiativeCard = ({ card, cardList, setCardList, sortCardList }: any) => {
   }
 
   return (
-    <div className={`
+    <div className={`initiative-card
         h-16 pl-2 rounded-md flex flex-row bg-slate-50
         content-evenly items-center gap-2 text-4xl
         mx-2 color-${card.color}
@@ -56,13 +57,9 @@ const InitiativeCard = ({ card, cardList, setCardList, sortCardList }: any) => {
         ${done ? 'done' : ''}
       `}>
       <button
-        className="basis-10 rounded-full"
+        className="done-button basis-10 rounded-full"
         onClick={toggleDone}
       >{ String.fromCharCode(10003) }</button>
-      <button
-        className="basis-10 rounded-full"
-        onClick={toggleDisable}
-      >{ String.fromCharCode(8646) }</button>
       <input
         className="basis-16 max-w-16 p-1 border"
         type="number"
@@ -79,6 +76,10 @@ const InitiativeCard = ({ card, cardList, setCardList, sortCardList }: any) => {
         onChange={ handleSecondaryInitiativeChange }
         value={ secondaryInitiative }
       />
+      <button
+        className="disabel-button basis-10 rounded-full"
+        onClick={toggleDisable}
+      >{ String.fromCharCode(8646) }</button>
       <div className="basis-80 card-name">{card.name}</div>
       <button
         className="basis-10 rounded-full absolute right-4"
