@@ -10,7 +10,7 @@ const InitiativeTracker = () => {
   
   const [ cardList, setCardList ] = useState([])
 
-  const sortCardList = (list) => {
+  const sortCardList = (list: Array<initiativeCard>) => {
     let sortedList = []
     if (Array.isArray(list)) {
       sortedList = list.sort((a, b) => a.initiative - b.initiative)

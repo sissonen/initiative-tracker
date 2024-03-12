@@ -1,16 +1,16 @@
 import { useState } from 'react'
 
-const InitiativeCard = ({ card, cardList, setCardList, sortCardList }) => {
+const InitiativeCard = ({ card, cardList, setCardList, sortCardList }: any) => {
   
   const [ initiative, setInitiative ] = useState(card.initiative)
   const [ disabled, setDisabled ] = useState(card.disabled)
 
-  const handleInitiativeChange = (event) => {
+  const handleInitiativeChange = (event: any) => {
     let value = Number(event.target.value)
     changeInitiative(value)
   }
 
-  const handleFocus = (event) => {
+  const handleFocus = (event: any) => {
     event.target.select()
   }
   const toggleDisable = () => {
@@ -19,11 +19,11 @@ const InitiativeCard = ({ card, cardList, setCardList, sortCardList }) => {
     changeInitiative(newInitiative)
   }
 
-  const changeInitiative = (newInitiative) => {
+  const changeInitiative = (newInitiative: number) => {
     setInitiative(newInitiative)
     card.initiative = newInitiative
     let sortedCardList = sortCardList(cardList)
-    setCardList((sorted) => [...sortedCardList])
+    setCardList((sorted: Array<initiativeCard>) => [...sortedCardList])
   }
 
     //<div className="h-8 "+{disabled ? 'disabled' : ''}>

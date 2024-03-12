@@ -3,11 +3,11 @@
 import { useState } from 'react'
 import InitiativeCardList from '@/components/InitiativeCardList'
 
-const AddCard = ({ cardList, setCardList, sortCardList }) => {
+const AddCard = ({ cardList, setCardList, sortCardList }: any) => {
   
   const [ cardName, setCardName ] = useState('')
 
-  const addCard = (event) => {
+  const addCard = (event: any) => {
     event.preventDefault()
     if (cardName != '') {
       const newCard: initiativeCard = {
@@ -22,10 +22,10 @@ const AddCard = ({ cardList, setCardList, sortCardList }) => {
     }
   }
 
-  const handleNameChange = (event) => {
+  const handleNameChange = (event: any) => {
     setCardName(event.target.value)
   }
-  const handleFocus = (event) => {
+  const handleFocus = (event: any) => {
     event.target.select()
   }
   
@@ -43,7 +43,7 @@ const AddCard = ({ cardList, setCardList, sortCardList }) => {
             className="ml-2"
           />
         </label>
-        <button type="Submit" className="bg-grey-500 font-bold rounded border-width-1 border-black">Add</button>
+        <button type="submit" className="bg-grey-500 font-bold rounded border-width-1 border-black">Add</button>
       </form>
     </div>
   )
