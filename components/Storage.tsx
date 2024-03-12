@@ -6,6 +6,7 @@ const Storage = ({ cardList, setCardList }: any) => {
   const [ savedLists, setSavedLists ] = useState<storedList[]>([])
   const [ selectedSavedList, setSelectedSavedList ] = useState('')
 
+  // Get lists from storage only once when first rendering the component
   useEffect(() => {
     if (typeof window !== 'undefined' && window.localStorage) {
       // Get lists in localStorage
@@ -17,9 +18,11 @@ const Storage = ({ cardList, setCardList }: any) => {
     }
   }, []);
 
+  // Changing input name for the list to be saved
   const handleListNameChange = (event: any) => {
     setListName(event.target.value)
   }
+  // Change the select value (lists from localstorage)
   const handleSavedListsChange = (event: any) => {
     setSelectedSavedList(event.target.value)
   }
@@ -55,17 +58,20 @@ const Storage = ({ cardList, setCardList }: any) => {
     )
     if (Array.isArray(restoredList)) {
       setCardList(restoredList[0].list)
+      // Set list name (save name) to the restored, so saving will overwrite
       setListName(selectedSavedList)
     }
   }
 
   const deleteList = () => {
     if (typeof window !== 'undefined' && window.localStorage) {
+      // Filter out the selected list
       const remainingLists = [...savedLists.filter((storedList) =>
         storedList.listName !== selectedSavedList
       )]
       window.localStorage.setItem('card-lists', JSON.stringify(remainingLists))
       setSavedLists(remainingLists)
+      // If there are any remaining lists, set the select option to first one
       if (remainingLists.length > 0) {
         setSelectedSavedList(remainingLists[0].listName)
       }

@@ -6,6 +6,7 @@ const AddCard = ({ cardList, setCardList, sortCardList }: any) => {
   
   const [ cardName, setCardName ] = useState('')
   const [ color, setColor ] = useState('red')
+  // Preset colors which have corresponding CSS classes (.color-<color>)
   const colors = [ 'red', 'green', 'yellow', 'blue', 'turquoise', 'black', 'purple', 'pink', 'gray' ]
 
   const addCard = (event: any) => {

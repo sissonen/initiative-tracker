@@ -7,6 +7,8 @@ const InitiativeCard = ({ card, cardList, setCardList, sortCardList }: any) => {
   const [ disabled, setDisabled ] = useState(card.disabled)
   const [ done, setDone ] = useState(false)
 
+  // Cards are sorted first based on initiative and second based on secondary initiative
+  // When primary initiative is changed, secondary is set to 0
   const handleInitiativeChange = (event: any) => {
     let value = Number(event.target.value)
     setDone(false)
@@ -20,6 +22,7 @@ const InitiativeCard = ({ card, cardList, setCardList, sortCardList }: any) => {
   const handleFocus = (event: any) => {
     event.target.select()
   }
+  // Toggling disabled state also sets done state to false and initiatives to 999 -> sorted to the bottom
   const toggleDisable = () => {
     setDisabled(!disabled)
     setDone(false)
@@ -42,6 +45,7 @@ const InitiativeCard = ({ card, cardList, setCardList, sortCardList }: any) => {
     setCardList((sorted: Array<initiativeCard>) => [...sortedCardList])
   }
 
+  // Remove a card
   const handleClose = (event: any) => {
     let cardId = Number(event.target.value)
     let filteredCardList = cardList.filter((card: initiativeCard) => card.id !== cardId)
