@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react'
 const Storage = ({ cardList, setCardList }: any) => {
 
   const [ listName, setListName ] = useState('')
-  const [ savedLists, setSavedLists ] = useState([])
+  const [ savedLists, setSavedLists ] = useState<storedList[]>([])
   const [ selectedSavedList, setSelectedSavedList ] = useState('')
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.localStorage) {
       // Get lists in localStorage here
-      const storedLists = JSON.parse(window.localStorage.getItem('card-lists'))
+      const storedLists = JSON.parse(window.localStorage.getItem('card-lists') || '')
       setSavedLists(storedLists)
     }
   }, []);

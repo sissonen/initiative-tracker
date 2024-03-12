@@ -6,3 +6,8 @@ interface initiativeCard {
   color: string,
   disabled: boolean,
 }
+
+interface storedList {
+  listName: string,
+  list: initiativeCard[],
+}
