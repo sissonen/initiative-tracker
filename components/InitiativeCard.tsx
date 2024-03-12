@@ -51,22 +51,22 @@ const InitiativeCard = ({ card, cardList, setCardList, sortCardList }: any) => {
     <div className={`
         h-16 pl-2 rounded-md flex flex-row bg-slate-50
         content-evenly items-center gap-2 text-4xl
-        mx-2
+        mx-2 color-${card.color}
         ${disabled ? 'disabled' : ''}
         ${done ? 'done' : ''}
-      `}
-    >
+      `}>
       <button
-        className="basis-10 bg-slate-300 border-slate-200 rounded-full"
+        className="basis-10 bg-neutral-700 border-neutral-200 rounded-full"
         onClick={toggleDone}
       >{ String.fromCharCode(10003) }</button>
       <button
-        className="basis-10 bg-slate-300 border-slate-200 rounded-full"
+        className="basis-10 bg-neutral-700 border-neutral-200 rounded-full"
         onClick={toggleDisable}
       >{ String.fromCharCode(8646) }</button>
       <input
         className="basis-16 max-w-16 p-1 border"
         type="number"
+        name="initiative"
         onFocus={ handleFocus }
         onChange={ handleInitiativeChange }
         value={ initiative }
@@ -74,13 +74,14 @@ const InitiativeCard = ({ card, cardList, setCardList, sortCardList }: any) => {
       <input
         className="basis-16 max-w-16 p-1 border"
         type="number"
+        name="secondary-initiative"
         onFocus={ handleFocus }
         onChange={ handleSecondaryInitiativeChange }
         value={ secondaryInitiative }
       />
       <div className="basis-80">{card.name}</div>
       <button
-        className="basis-10 bg-slate-300 border-slate-200 rounded-full absolute right-4"
+        className="basis-10 bg-neutral-700 border-neutral-200 rounded-full absolute right-4"
         onClick={handleClose}
         value={card.id}
       >{ String.fromCharCode(10005) }</button>

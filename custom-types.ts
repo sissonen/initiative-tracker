@@ -3,5 +3,6 @@ interface initiativeCard {
   name: string,
   initiative: number,
   secondaryInitiative: number,
+  color: string,
   disabled: boolean,
 }

@@ -4,8 +4,44 @@
 
 body {
   overflow: hidden;
-  background: black;
+  background: #f5f4e6;
 }
+
+.color-gray {
+  background-color: #4d4d4d;
+  color: #FFF;
+}
+.color-red {
+  background-color: #c72216;
+  color: #FFF;
+}
+.color-yellow {
+  background-color: #e6e21c;
+  color: #000;
+}
+.color-blue {
+  background-color: #193dbf;
+  color: #FFF;
+}
+.color-black {
+  background-color: #000;
+  color: #FFF;
+}
+.color-pink {
+  background-color: #eb7197;
+  color: #000;
+}
+.color-purple {
+  background-color: #ba00a4;
+  color: #FFF;
+}
+input {
+  color: #000;
+}
+button {
+  color: #FFF;
+}
+
 .disabled {
   position: relative;
   left: 50%;
@@ -23,4 +59,7 @@ body {
 .done {
   position: relative;
   left: 20%;
+}
+form button {
+  color: #000;
 }

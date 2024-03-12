@@ -1,11 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import InitiativeCardList from '@/components/InitiativeCardList'
 
 const AddCard = ({ cardList, setCardList, sortCardList }: any) => {
   
   const [ cardName, setCardName ] = useState('')
+  const [ color, setColor ] = useState('gray')
+  const colors = [ 'red', 'yellow', 'blue', 'black', 'purple', 'pink', 'gray' ]
 
   const addCard = (event: any) => {
     event.preventDefault()
@@ -15,6 +16,7 @@ const AddCard = ({ cardList, setCardList, sortCardList }: any) => {
         name: cardName,
         initiative: 0,
         secondaryInitiative: 0,
+        color: color,
         disabled: false,
       }
       setCardList(sortCardList(cardList.concat(newCard)))
@@ -25,6 +27,9 @@ const AddCard = ({ cardList, setCardList, sortCardList }: any) => {
 
   const handleNameChange = (event: any) => {
     setCardName(event.target.value)
+  }
+  const handleColorChange = (event: any) => {
+    setColor(event.target.value)
   }
   const handleFocus = (event: any) => {
     event.target.select()
@@ -38,11 +43,26 @@ const AddCard = ({ cardList, setCardList, sortCardList }: any) => {
           <input
             type="text"
             name="name"
+            autocomplete="off"
             value={cardName}
             onChange={handleNameChange}
             onFocus={handleFocus}
             className="ml-2"
           />
+        </label>
+        <label className="p-2">
+          Color:
+          <select
+            name="color"
+            onChange={handleColorChange}
+            className="ml-2"
+          >
+            {
+              colors.map((value) => 
+                <option key={value}>{value}</option>
+              )
+            }
+          </select>
         </label>
         <button type="submit" className="bg-grey-500 font-bold rounded border-width-1 border-black">Add</button>
       </form>
