@@ -6,7 +6,7 @@ const AddCard = ({ cardList, setCardList, sortCardList }: any) => {
   
   const [ cardName, setCardName ] = useState('')
   const [ color, setColor ] = useState('gray')
-  const colors = [ 'red', 'yellow', 'blue', 'black', 'purple', 'pink', 'gray' ]
+  const colors = [ 'gray', 'red', 'yellow', 'blue', 'black', 'purple', 'pink' ]
 
   const addCard = (event: any) => {
     event.preventDefault()
@@ -43,7 +43,7 @@ const AddCard = ({ cardList, setCardList, sortCardList }: any) => {
           <input
             type="text"
             name="name"
-            autocomplete="off"
+            autoComplete="off"
             value={cardName}
             onChange={handleNameChange}
             onFocus={handleFocus}
