@@ -43,7 +43,7 @@ const InitiativeCard = ({ card, cardList, setCardList, sortCardList }: any) => {
 
   const handleClose = (event: any) => {
     let cardId = Number(event.target.value)
-    let filteredCardList = cardList.filter(card => card.id !== cardId)
+    let filteredCardList = cardList.filter((card: initiativeCard) => card.id !== cardId)
     setCardList((filtered: Array<initiativeCard>) => [...filteredCardList])
   }
 
