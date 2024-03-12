@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow: hidden;
+  background: black;
+}
+.disabled {
+  position: relative;
+  left: 50%;
+  pointer-events: none;
+  background-color: grey;
+
+  button {
+    pointer-events: auto;
+  }
+  input {
+    background-color: grey;
+    color: grey;
+  }
+}
