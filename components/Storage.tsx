@@ -9,8 +9,11 @@ const Storage = ({ cardList, setCardList }: any) => {
   useEffect(() => {
     if (typeof window !== 'undefined' && window.localStorage) {
       // Get lists in localStorage
-      const storedLists = JSON.parse(window.localStorage.getItem('card-lists') || [])
+      const storedLists = JSON.parse(window.localStorage.getItem('card-lists') || '[]')
       setSavedLists(storedLists)
+      if (storedLists.length > 0) {
+        setSelectedSavedList(storedLists[0].listName)
+      }
     }
   }, []);
 
