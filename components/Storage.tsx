@@ -35,6 +35,7 @@ const Storage = ({ cardList, setCardList }: any) => {
         }
         let newCardLists = []
         if (Array.isArray(savedLists)) {
+          // Replace stored list with a same name
           newCardLists = [...savedLists.filter((storedList) =>
             storedList.listName !== listName
           ), storageCardList]
@@ -43,6 +44,7 @@ const Storage = ({ cardList, setCardList }: any) => {
         }
         window.localStorage.setItem('card-lists', JSON.stringify(newCardLists))
         setSavedLists(newCardLists)
+        setSelectedSavedList(listName)
       }
     }
   }
@@ -64,7 +66,9 @@ const Storage = ({ cardList, setCardList }: any) => {
       )]
       window.localStorage.setItem('card-lists', JSON.stringify(remainingLists))
       setSavedLists(remainingLists)
-      setSelectedSavedList(remainingLists[0].listName)
+      if (remainingLists.length > 0) {
+        setSelectedSavedList(remainingLists[0].listName)
+      }
     }
   }
 
@@ -93,6 +97,7 @@ const Storage = ({ cardList, setCardList }: any) => {
         <select
           name="savedLists"
           onChange={handleSavedListsChange}
+          value={selectedSavedList}
           className="ml-2"
         >
           {
