@@ -8,8 +8,8 @@ const Storage = ({ cardList, setCardList }: any) => {
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.localStorage) {
-      // Get lists in localStorage here
-      const storedLists = JSON.parse(window.localStorage.getItem('card-lists') || '')
+      // Get lists in localStorage
+      const storedLists = JSON.parse(window.localStorage.getItem('card-lists') || [])
       setSavedLists(storedLists)
     }
   }, []);
@@ -45,10 +45,13 @@ const Storage = ({ cardList, setCardList }: any) => {
   }
 
   const restoreList = () => {
-    setCardList(savedLists.filter((storedList) =>
+    const restoredList = savedLists.filter((storedList) =>
       storedList.listName == selectedSavedList
-    )[0].list)
-    setListName(selectedSavedList)
+    )
+    if (Array.isArray(restoredList)) {
+      setCardList(restoredList[0].list)
+      setListName(selectedSavedList)
+    }
   }
 
   const deleteList = () => {
