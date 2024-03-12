@@ -36,7 +36,7 @@ const AddCard = ({ cardList, setCardList, sortCardList }: any) => {
   }
   
   return (
-    <div className="fixed bottom-0 w-full bg-gray-200 p-2">
+    <div className="w-full bg-gray-200 p-2">
       <form onSubmit={addCard}>
         <label className="p-2">
           Name:

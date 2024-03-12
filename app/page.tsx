@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 import '@/custom-types'
 import AddCard from '@/components/AddCard'
+import Storage from '@/components/Storage'
 import InitiativeCardList from '@/components/InitiativeCardList'
 
 const InitiativeTracker = () => {
@@ -33,11 +34,17 @@ const InitiativeTracker = () => {
         setCardList={setCardList}
         sortCardList={sortCardList}
       />
-      <AddCard
-        cardList={cardList}
-        setCardList={setCardList}
-        sortCardList={sortCardList}
-      />
+      <div className="footer fixed bottom-0 w-full">
+        <AddCard
+          cardList={cardList}
+          setCardList={setCardList}
+          sortCardList={sortCardList}
+        />
+        <Storage
+          cardList={cardList}
+          setCardList={setCardList}
+        />
+      </div>
     </div>
   )
 }
