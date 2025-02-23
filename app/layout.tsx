@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import type { Viewport } from "next"
+
+import { Analytics } from '@vercel/analytics/react'
 import { Inter } from "next/font/google"
 import "./globals.css"
 //import InitiativeTracker from '@/app/page.tsx'
@@ -26,6 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="">{children}</div>
+	<Analytics />
       </body>
     </html>
   )
